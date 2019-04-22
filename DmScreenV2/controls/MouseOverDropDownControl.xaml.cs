@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DmScreenV2
+namespace DmScreenV2.controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MouseOverDropDownControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MouseOverDropDownControl : UserControl
     {
-        public MainWindow()
+        public MouseOverDropDownControl()
         {
             InitializeComponent();
         }
