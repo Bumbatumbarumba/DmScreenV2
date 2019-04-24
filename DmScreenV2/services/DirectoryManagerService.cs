@@ -26,6 +26,7 @@ namespace DmScreenV2.services
                 Directory.CreateDirectory(WorkingDirectory + "resources\\");
                 Directory.CreateDirectory(WorkingDirectory + "resources\\" + "music\\");
                 Directory.CreateDirectory(WorkingDirectory + "resources\\" + "images\\");
+                Directory.CreateDirectory(WorkingDirectory + "resources\\" + "images\\" + "dice\\");
 
                 ConfigurationSettings.AppSettings.Set("IsFirstTimeStartUp", "false");
                 Console.WriteLine("all directories created successfully");
@@ -49,6 +50,8 @@ namespace DmScreenV2.services
                 Directory.CreateDirectory(WorkingDirectory + "resources\\" + "music\\");
             if (!Directory.Exists(WorkingDirectory + "resources\\" + "images\\"))
                 Directory.CreateDirectory(WorkingDirectory + "resources\\" + "images\\");
+            if (!Directory.Exists(WorkingDirectory + "resources\\" + "images\\" + "dice\\"))
+                Directory.CreateDirectory(WorkingDirectory + "resources\\" + "images\\" + "dice\\");
         }
     }
 }
