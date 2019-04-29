@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace DmScreenV2.classes
 {
-    class CampaignObject
+    public class CampaignObject
     {
+        public string FileTitle { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
+        public string Theme { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastAccessed { get; set; }
         public string[] MusicFileLocations { get; set; }

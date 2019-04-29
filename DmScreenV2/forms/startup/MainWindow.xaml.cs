@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
-using DmScreenV2.forms.tools;
+using DmScreenV2.forms.startup;
 using DmScreenV2.services;
 
 namespace DmScreenV2
@@ -37,31 +37,20 @@ namespace DmScreenV2
 
         private void BtnViewList_Click(object sender, RoutedEventArgs e)
         {
-            //DELETE THIS
-            TestingStuff();
+            ListOfCampaignsScreen listOfCampaigns = new ListOfCampaignsScreen();
+            listOfCampaigns.IsEnabled = true;
+            listOfCampaigns.Visibility = Visibility.Visible;
+            this.Close();
         }
 
-
-        //THIS IS ONLY FOR TESTING STUFF
-        //DELETE THIS EVENTUALLY
-        public void TestingStuff()
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
-            //BattleMap test = new BattleMap();
-            //test.Visibility = Visibility.Visible;
-            //test.IsEnabled = true;
 
-            //CampaignDataService.CreateCampaignFile("test2", "bartosz");
-            //CampaignDataService.CreateCampaignFile("joachim smells", "bartosz");
-            //CampaignDataService.GetCampaignData("test");
-            //CampaignDataService.SelectedCampaign.Title = "eeeee";
-            //CampaignDataService.SaveCampaignData();
-            //DirectoryManagerService.InitializeAllDirectories();
-            //CampaignDataService.GetAllCampaigns();
+        }
 
-            foreach (var camp in CampaignDataService.GetAllCampaigns())
-            {
-                Console.WriteLine(camp.Title);
-            }
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

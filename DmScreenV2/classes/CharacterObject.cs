@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DmScreenV2.classes
 {
-    class CharacterObject
+    public class CharacterObject
     {
     }
 }

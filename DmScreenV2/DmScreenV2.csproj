@@ -72,6 +72,9 @@
     <Compile Include="controls\MouseOverDropDownControl.xaml.cs">
       <DependentUpon>MouseOverDropDownControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms\startup\CreateNewCampaignScreen.xaml.cs">
+      <DependentUpon>CreateNewCampaignScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms\startup\ListOfCampaignsScreen.xaml.cs">
       <DependentUpon>ListOfCampaignsScreen.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
     <Compile Include="services\DirectoryManagerService.cs" />
     <Compile Include="services\MusicDataService.cs" />
     <Page Include="controls\MouseOverDropDownControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms\startup\CreateNewCampaignScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resources\dice\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\images\DefaultCampaignIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

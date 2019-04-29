@@ -1,0 +1,23 @@
+﻿<Window x:Name="frmCreateNewCampaign" x:Class="DmScreenV2.forms.startup.CreateNewCampaignScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DmScreenV2.forms.startup"
+        mc:Ignorable="d"
+        Title="New Campaign" Height="274.26" Width="404.586">
+    <Grid>
+        <Label x:Name="lblTitle" Content="Title:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="35" Width="118" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Height="35" Margin="133,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="233" FontSize="16" MaxLength="20"/>
+        <Label x:Name="lblTheme" Content="Theme:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="35" Width="118" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="txtTheme" HorizontalAlignment="Left" Height="35" Margin="133,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="233" FontSize="16" MaxLength="20"/>
+        <Label x:Name="lblAuthor" Content="Author:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="35" Width="118" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Height="35" Margin="133,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="233" FontSize="16" MaxLength="20"/>
+        <Label x:Name="lblImageDir" Content="Icon Location:" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Height="35" Width="118" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="txtImageDir" HorizontalAlignment="Left" Height="35" Margin="133,130,0,0" Text="" VerticalAlignment="Top" Width="233" FontSize="16" IsEnabled="False"/>
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="100" Height="37" FontSize="16" Click="BtnCreate_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="266,181,0,0" VerticalAlignment="Top" Width="100" Height="37" FontSize="16" Click="BtnCancel_Click"/>
+        <Button x:Name="btnEdit" Content="Save" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="100" Height="37" FontSize="16" Click="BtnEdit_Click" IsEnabled="False" Visibility="Hidden"/>
+        <Button x:Name="btnPickImage" Content="Pick Icon" HorizontalAlignment="Left" Margin="139,181,0,0" VerticalAlignment="Top" Width="100" Height="37" FontSize="16"/>
+    </Grid>
+</Window>

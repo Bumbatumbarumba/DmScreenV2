@@ -65,18 +65,25 @@ namespace DmScreenV2.services
         //
         //Creates a new campaign.json file using the campaign name and the author's name.
         //
-        public static void CreateCampaignFile(string campaignName, string author)
+        public static void CreateCampaignFile(CampaignObject desiredCampaign)
         {
-            if (!CheckIfCampaignExists(campaignName))
+            if (!CheckIfCampaignExists(desiredCampaign.FileTitle))
             {
                 CampaignObject newCamp = new CampaignObject();
-                newCamp.Title = campaignName;
-                newCamp.Author = author;
+                newCamp.FileTitle = desiredCampaign.FileTitle;
+                newCamp.Title = desiredCampaign.Title;
+                newCamp.Author = desiredCampaign.Author;
+                newCamp.Theme = desiredCampaign.Theme;
                 newCamp.CreationDate = DateTime.Now;
                 //newCamp.LastAccessed = DateTime.Parse("01/01/1001");
                 newCamp.MusicFileLocations = new string[] { "" };
                 newCamp.CharacterList = new CharacterObject[] { };
-                newCamp.CampaignImageFileLocation = "";
+
+                //if there is a directory, we set it to be that; if it's empty, we set it to be default
+                if (!(desiredCampaign.CampaignImageFileLocation == ""))
+                    newCamp.CampaignImageFileLocation = desiredCampaign.CampaignImageFileLocation;
+                else
+                    newCamp.CampaignImageFileLocation = ConfigurationSettings.AppSettings.Get("DefaultSaveLocation") + @"\resources\images\DefaultCampaignIcon.png";
 
                 string newCampJson = JsonConvert.SerializeObject(newCamp);
                 using (StreamWriter streamWriter = new StreamWriter(WorkingDirectory))
@@ -118,11 +125,22 @@ namespace DmScreenV2.services
         //
         public static void SaveCampaignData()
         {
+            WorkingDirectory = WorkingDirectory + @"\" + SelectedCampaign.FileTitle + ".json";
             using (StreamWriter streamWriter = new StreamWriter(WorkingDirectory))
             {
                 string stringSelectedCampaign = JsonConvert.SerializeObject(SelectedCampaign);
                 streamWriter.Write(stringSelectedCampaign);
             }
+        }
+
+
+        //
+        //Deletes the selected file.
+        //
+        public static void DeleteCampaignData()
+        {
+            WorkingDirectory = WorkingDirectory + @"\" + SelectedCampaign.FileTitle + ".json";
+            File.Delete(WorkingDirectory);
         }
     }
 }
