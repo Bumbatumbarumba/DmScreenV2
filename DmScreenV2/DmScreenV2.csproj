@@ -82,6 +82,8 @@
       <DependentUpon>BattleMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="services\CampaignDataService.cs" />
+    <Compile Include="services\ErrorHandlingService.cs" />
+    <Compile Include="services\HttpService.cs" />
     <Compile Include="services\UserSettingsService.cs" />
     <Compile Include="services\DirectoryManagerService.cs" />
     <Compile Include="services\MusicDataService.cs" />
