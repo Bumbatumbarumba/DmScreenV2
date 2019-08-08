@@ -54,7 +54,10 @@ namespace DmScreenV2.forms.startup
         //Starts the selected campaign.
         private void BtnLaunchSelected_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(CampaignDataService.SelectedCampaign.Title);
+            MainInterface startSelectedCampaign = new MainInterface();
+            startSelectedCampaign.Visibility = Visibility.Visible;
+            startSelectedCampaign.IsEnabled = true;
+            this.Close();
         }
 
 

@@ -17,5 +17,6 @@ namespace DmScreenV2.classes
         public string[] MusicFileLocations { get; set; }
         public CharacterObject[] CharacterList { get; set; }
         public string CampaignImageFileLocation { get; set; }
+        public bool WasFileSaveSuccessful { get; set; }
     }
 }

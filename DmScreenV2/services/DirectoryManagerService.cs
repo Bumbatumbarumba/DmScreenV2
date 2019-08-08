@@ -10,12 +10,15 @@ namespace DmScreenV2.services
 {
     class DirectoryManagerService
     {
+        /// <summary>
+        /// Where all of the data should be saved to. Can be changed in the user settings eventually?
+        /// </summary>
         private static string WorkingDirectory { get; set; }
 
 
-        //
-        //Creates the directories needed for the program to run; called on startup.
-        //
+        /// <summary>
+        /// Creates the directories needed for the program to run; called on startup.
+        /// </summary>
         public static void InitializeAllDirectories()
         {
             if (Convert.ToBoolean(ConfigurationSettings.AppSettings.Get("IsFirstTimeStartUp")))
@@ -38,6 +41,11 @@ namespace DmScreenV2.services
             }
         }
 
+
+        /// <summary>
+        /// Called on start up; checks if there are any missing directories and creates
+        /// them if they're not present.
+        /// </summary>
         private static void CheckForMissingDirectories()
         {
             if(!Directory.Exists(WorkingDirectory))

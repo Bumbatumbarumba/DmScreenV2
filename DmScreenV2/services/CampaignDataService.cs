@@ -16,13 +16,16 @@ namespace DmScreenV2.services
         public static CampaignObject SelectedCampaign { get; set; }
 
 
-        //
-        //Goes through the campaigns directory, gets all of the json files, and then puts them
-        //into a nice list for us to use.
-        //NOTE TO SELF: we don't store this as a class variable because we only need to show the 
-        //list one time, plus the data is dynamic and storing it would mean re-reading the files
-        //every time.
-        //
+        /// <summary>
+        /// Goes through the campaigns directory, gets all of the json files, and then puts them
+        /// into a nice list for us to use.
+        /// NOTE TO SELF: we don't store this as a class variable because we only need to show the 
+        /// list one time, plus the data is dynamic and storing it would mean re-reading the files
+        /// every time.
+        /// </summary>
+        /// <returns>
+        /// List of Campaign objects
+        /// </returns>
         public static List<CampaignObject> GetAllCampaigns()
         {
             List<CampaignObject> listOfCampaigns = new List<CampaignObject>(); ;
@@ -42,9 +45,11 @@ namespace DmScreenV2.services
         }
 
 
-        //
-        //Check if a specified campaign exists; if it does not then we create a new one, otherwise we throw an exception.
-        //
+        /// <summary>
+        /// Check if a specified campaign exists; if it does not then we create a new one, otherwise we throw an exception.
+        /// </summary>
+        /// <param name="campaignName"></param>
+        /// <returns></returns>
         private static bool CheckIfCampaignExists(string campaignName)
         {
             //get the default directory for the project
@@ -60,11 +65,12 @@ namespace DmScreenV2.services
                 return true; //file does exist already
 
         }
-        
 
-        //
-        //Creates a new campaign.json file using the campaign name and the author's name.
-        //
+
+        /// <summary>
+        /// Creates a new campaign.json file using the campaign name and the author's name.
+        /// </summary>
+        /// <param name="desiredCampaign"></param>
         public static void CreateCampaignFile(CampaignObject desiredCampaign)
         {
             if (!CheckIfCampaignExists(desiredCampaign.FileTitle))
@@ -97,11 +103,12 @@ namespace DmScreenV2.services
                 //maybe write your own exception? find a concrete one
             }
         }
-               
-        
-        //
-        //Loads all the campaign json file into a CampaignObject for use where needed.
-        //
+
+
+        /// <summary>
+        /// Loads all the campaign json file into a CampaignObject for use where needed.
+        /// </summary>
+        /// <param name="campaignName"></param>
         public static void GetCampaignData(string campaignName)
         {
             if (CheckIfCampaignExists(campaignName))
@@ -120,23 +127,34 @@ namespace DmScreenV2.services
         }
 
 
-        //
-        //Saves the selected campaign object back into a file
-        //
+        /// <summary>
+        /// Saves the selected campaign object back into a file
+        /// </summary>
         public static void SaveCampaignData()
         {
-            WorkingDirectory = WorkingDirectory + @"\" + SelectedCampaign.FileTitle + ".json";
-            using (StreamWriter streamWriter = new StreamWriter(WorkingDirectory))
+            try
             {
-                string stringSelectedCampaign = JsonConvert.SerializeObject(SelectedCampaign);
-                streamWriter.Write(stringSelectedCampaign);
+                WorkingDirectory = WorkingDirectory + @"\" + SelectedCampaign.FileTitle + ".json";
+                using (StreamWriter streamWriter = new StreamWriter(WorkingDirectory))
+                {
+                    string stringSelectedCampaign = JsonConvert.SerializeObject(SelectedCampaign);
+                    streamWriter.Write(stringSelectedCampaign);
+                }
+                SelectedCampaign.WasFileSaveSuccessful = true;
+            }
+            catch (Exception e)
+            {
+                //TO DO
+                //CREATE A SPECIFIC ERROR HERE
+                Console.WriteLine("Error: could not save file due to the following error: \n" + e.Message);
+                SelectedCampaign.WasFileSaveSuccessful = false;
             }
         }
 
 
-        //
-        //Deletes the selected file.
-        //
+        /// <summary>
+        /// Deletes the selected file.
+        /// </summary>
         public static void DeleteCampaignData()
         {
             WorkingDirectory = WorkingDirectory + @"\" + SelectedCampaign.FileTitle + ".json";

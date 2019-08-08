@@ -1,0 +1,53 @@
+﻿<Window x:Name="frmMainInterface" x:Class="DmScreenV2.forms.MainInterface"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DmScreenV2.forms"
+        mc:Ignorable="d"
+        Title="DM Screen" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="794">
+            <MenuItem Header="_General" FontSize="18" Width="75" Height="50">
+                <MenuItem Header="Battle Map" Click="BattleMap_Click"/>
+                <MenuItem Header="Music Player" Click="MusicPlayer_Click"/>
+                <MenuItem Header="Dice" Click="Dice_Click"/>
+                <MenuItem Header="Image Gallery" Click="ImageGallery_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Map Tool" FontSize="18" Width="100" Height="50" Margin="5,0,0,0">
+                <MenuItem Header="Create Map" Click="CreateMap_Click"/>
+                <MenuItem Header="Edit Map" Click="EditMap_Click"/>
+                <MenuItem Header="View Map" Click="ViewMap_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Fill Land" FontSize="18" Width="100" Height="50" Margin="5,0,0,0">
+                <MenuItem Header="Towns">
+                    <MenuItem Header="Create Towns" Click="CreateTowns_Click"/>
+                    <MenuItem Header="Edit Towns" Click="EditTowns_Click"/>
+                    <MenuItem Header="View Towns" Click="ViewTowns_Click"/>
+                </MenuItem>
+                <MenuItem Header="Shops">
+                    <MenuItem Header="Create Shop" Click="CreateShops_Click"/>
+                    <MenuItem Header="Edit Shop" Click="EditShops_Click"/>
+                    <MenuItem Header="View Shop" Click="ViewShops_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Characters" FontSize="18" Width="100" Height="50" Margin="5,0,0,0">
+                <MenuItem Header="Create">
+                    <MenuItem Header="Non-Playable" Click="CreateNpc_Click"/>
+                    <MenuItem Header="Player" Click="CreatePlayers_Click"/>
+                </MenuItem>
+                <MenuItem Header="View All" Click="ViewCharacters_Click"/>
+            </MenuItem>
+            <MenuItem Header="Settings" FontSize="18" Width="100" Height="50" Margin="5,0,0,0">
+                <MenuItem Header="Mode">
+                    <MenuItem Header="Gaming" Click="PlayMode_Clicked"/>
+                    <MenuItem Header="Editing" Click="EditMode_Clicked"/>
+                </MenuItem>
+                <MenuItem Header="Help" Click="Help_Clicked"/>
+                <MenuItem Header="Save" Click="Save_Clicked"/>
+                <MenuItem Header="Exit" Click="Exit_Clicked"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>
