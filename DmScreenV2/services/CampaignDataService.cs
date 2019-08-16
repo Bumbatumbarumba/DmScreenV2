@@ -12,6 +12,16 @@ namespace DmScreenV2.services
 {
     class CampaignDataService
     {
+        /// <summary>
+        /// Used to call an event when the campaign data is saved.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
+        public delegate void CampaignDataSavedEventHandler(object source, EventArgs e);
+
+        public static event CampaignDataSavedEventHandler DataSaved;
+
+
         private static string WorkingDirectory { get; set; }
         public static CampaignObject SelectedCampaign { get; set; }
 
@@ -82,7 +92,7 @@ namespace DmScreenV2.services
                 newCamp.Theme = desiredCampaign.Theme;
                 newCamp.CreationDate = DateTime.Now;
                 //newCamp.LastAccessed = DateTime.Parse("01/01/1001");
-                newCamp.MusicFileLocations = new string[] { "" };
+                newCamp.MusicFileLocations = new List<MusicObject>();
                 newCamp.CharacterList = new CharacterObject[] { };
 
                 //if there is a directory, we set it to be that; if it's empty, we set it to be default
@@ -141,6 +151,7 @@ namespace DmScreenV2.services
                     streamWriter.Write(stringSelectedCampaign);
                 }
                 SelectedCampaign.WasFileSaveSuccessful = true;
+                OnDataSaved();
             }
             catch (Exception e)
             {
@@ -148,6 +159,18 @@ namespace DmScreenV2.services
                 //CREATE A SPECIFIC ERROR HERE
                 Console.WriteLine("Error: could not save file due to the following error: \n" + e.Message);
                 SelectedCampaign.WasFileSaveSuccessful = false;
+            }
+        }
+
+
+        /// <summary>
+        /// Event that gets raised when the user successfully saves their campaign data.
+        /// </summary>
+        protected static void OnDataSaved()
+        {
+            if (DataSaved != null)
+            {
+                DataSaved(null, EventArgs.Empty);
             }
         }
 

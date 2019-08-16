@@ -14,7 +14,7 @@ namespace DmScreenV2.classes
         public string Theme { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastAccessed { get; set; }
-        public string[] MusicFileLocations { get; set; }
+        public List<MusicObject> MusicFileLocations { get; set; }
         public CharacterObject[] CharacterList { get; set; }
         public string CampaignImageFileLocation { get; set; }
         public bool WasFileSaveSuccessful { get; set; }

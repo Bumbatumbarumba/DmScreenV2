@@ -69,8 +69,15 @@
     </ApplicationDefinition>
     <Compile Include="classes\CampaignObject.cs" />
     <Compile Include="classes\CharacterObject.cs" />
+    <Compile Include="classes\MusicObject.cs" />
     <Compile Include="controls\MouseOverDropDownControl.xaml.cs">
       <DependentUpon>MouseOverDropDownControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms\tools\BattleMap.xaml.cs">
+      <DependentUpon>BattleMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms\tools\Dice.xaml.cs">
+      <DependentUpon>Dice.xaml</DependentUpon>
     </Compile>
     <Compile Include="forms\MainInterface.xaml.cs">
       <DependentUpon>MainInterface.xaml</DependentUpon>
@@ -81,8 +88,8 @@
     <Compile Include="forms\startup\ListOfCampaignsScreen.xaml.cs">
       <DependentUpon>ListOfCampaignsScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="forms\tools\BattleMap.xaml.cs">
-      <DependentUpon>BattleMap.xaml</DependentUpon>
+    <Compile Include="forms\tools\MusicPlayer.xaml.cs">
+      <DependentUpon>MusicPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="services\CampaignDataService.cs" />
     <Compile Include="services\ErrorHandlingService.cs" />
@@ -91,6 +98,14 @@
     <Compile Include="services\DirectoryManagerService.cs" />
     <Compile Include="services\MusicDataService.cs" />
     <Page Include="controls\MouseOverDropDownControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms\tools\BattleMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms\tools\Dice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,7 +133,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="forms\tools\BattleMap.xaml">
+    <Page Include="forms\tools\MusicPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,6 +166,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="forms\tools\gallery\" />
     <Folder Include="resources\dice\" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +174,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\images\temp64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\images\dataNotSaved.png" />
+    <Resource Include="resources\images\dataSaved.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

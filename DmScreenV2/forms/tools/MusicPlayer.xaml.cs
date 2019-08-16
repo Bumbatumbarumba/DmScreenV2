@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace DmScreenV2.forms.tools
 {
     /// <summary>
-    /// Interaction logic for BattleMap.xaml
+    /// Interaction logic for MusicPlayer.xaml
     /// </summary>
-    public partial class BattleMap : Window
+    public partial class MusicPlayer : Window
     {
-        public BattleMap()
+        public MusicPlayer()
         {
             InitializeComponent();
-            SetUpGrid();
-        }
-
-
-        public void SetUpGrid()
-        {
-
         }
     }
 }

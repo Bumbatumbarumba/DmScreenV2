@@ -54,6 +54,7 @@ namespace DmScreenV2.forms.startup
         //Starts the selected campaign.
         private void BtnLaunchSelected_Click(object sender, RoutedEventArgs e)
         {
+            CampaignDataService.SelectedCampaign.LastAccessed = DateTime.Now;
             MainInterface startSelectedCampaign = new MainInterface();
             startSelectedCampaign.Visibility = Visibility.Visible;
             startSelectedCampaign.IsEnabled = true;
@@ -196,10 +197,13 @@ namespace DmScreenV2.forms.startup
         }
 
 
-        //
-        //When the user clicks a selection from the list of campaigns, it enables some buttons and 
-        //sets the selected campaign to be the one that will be loaded.
-        //
+        /// <summary>
+        /// When the user clicks a selection from the list of campaigns, it enables some buttons and 
+        /// sets the selected campaign to be the one that will be loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="selectedEntry"></param>
         private void SelectedCampaignEntry(object sender, RoutedEventArgs e, CampaignObject selectedEntry)
         {
             btnLaunchSelected.IsEnabled = true;

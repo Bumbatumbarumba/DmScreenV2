@@ -24,6 +24,11 @@ namespace DmScreenV2.forms.startup
         private ListOfCampaignsScreen listScreen;
         private CampaignObject desiredCampaign;
 
+        /// <summary>
+        /// Creates an instance of the screen that will allow for the user to create a campaign.
+        /// </summary>
+        /// <param name="listScreen"> Passes the screen to get parameters from it.</param>
+        /// <param name="isEditMode"> If isEditMode is true, then we pass the created campaign's parameters to the CreateNewCampaignScreen.</param>
         public CreateNewCampaignScreen(ListOfCampaignsScreen listScreen, bool isEditMode)
         {
             InitializeComponent();
@@ -43,15 +48,17 @@ namespace DmScreenV2.forms.startup
         }
 
 
-        //
-        //User chose to create a new campaign from scratch.
-        //
+        /// <summary>
+        /// User chose to create a new campaign from scratch.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 desiredCampaign = new CampaignObject();
-                desiredCampaign.FileTitle = txtTitle.Text;
+                desiredCampaign.FileTitle = txtTitle.Text.Replace(' ','_');
                 desiredCampaign.Title = txtTitle.Text;
                 desiredCampaign.Author = txtAuthor.Text;
                 desiredCampaign.Theme = txtTheme.Text;
@@ -67,9 +74,11 @@ namespace DmScreenV2.forms.startup
         }
 
 
-        //
-        //User selected an existing campaign in the campaign list screen.
-        //
+        /// <summary>
+        /// User selected an existing campaign in the campaign list screen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -89,18 +98,21 @@ namespace DmScreenV2.forms.startup
         }
 
 
-        //
-        //The user doesn't want to make a new campaign.
-        //
+        /// <summary>
+        /// Cancel button event handler; the user doesn't want to make a new campaign.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            CloseForm("No campaign made!");
+            
         }
 
 
-        //
-        //Shows a message then closes the form.
-        //
+        /// <summary>
+        /// Shows a message then closes the form.
+        /// </summary>
+        /// <param name="message"></param>
         private void CloseForm(string message)
         {
             MessageBox.Show(message);

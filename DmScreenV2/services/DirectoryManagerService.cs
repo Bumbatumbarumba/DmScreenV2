@@ -13,7 +13,7 @@ namespace DmScreenV2.services
         /// <summary>
         /// Where all of the data should be saved to. Can be changed in the user settings eventually?
         /// </summary>
-        private static string WorkingDirectory { get; set; }
+        public static string WorkingDirectory { get; set; }
 
 
         /// <summary>
