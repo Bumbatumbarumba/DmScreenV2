@@ -55,21 +55,29 @@ namespace DmScreenV2.forms.startup
         /// <param name="e"></param>
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (ValidateFields())
             {
-                desiredCampaign = new CampaignObject();
-                desiredCampaign.FileTitle = txtTitle.Text.Replace(' ','_');
-                desiredCampaign.Title = txtTitle.Text;
-                desiredCampaign.Author = txtAuthor.Text;
-                desiredCampaign.Theme = txtTheme.Text;
-                desiredCampaign.CampaignImageFileLocation = txtImageDir.Text;
+                try
+                {
+                    desiredCampaign = new CampaignObject();
+                    desiredCampaign.FileTitle = txtTitle.Text.Replace(' ', '_');
+                    desiredCampaign.Title = txtTitle.Text;
+                    desiredCampaign.Author = txtAuthor.Text;
+                    desiredCampaign.Theme = txtTheme.Text;
+                    desiredCampaign.CampaignImageFileLocation = txtImageDir.Text;
 
-                CampaignDataService.CreateCampaignFile(desiredCampaign);
-                CloseForm("New file created and saved!");
+                    CampaignDataService.CreateCampaignFile(desiredCampaign);
+                    CloseForm("New file created and saved!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please ensure that the title, author, and theme fields are not empty!");
             }
         }
 
@@ -99,13 +107,13 @@ namespace DmScreenV2.forms.startup
 
 
         /// <summary>
-        /// Cancel button event handler; the user doesn't want to make a new campaign.
+        /// Cancel button event handler; the user doesn't want to make a new campaign or edit the data.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            
+            this.Close();
         }
 
 
@@ -118,6 +126,23 @@ namespace DmScreenV2.forms.startup
             MessageBox.Show(message);
             this.listScreen.RefreshCampaignList();
             this.Close();
+        }
+        
+
+        /// <summary>
+        /// Checks if the title, author, and text field are empty or not.
+        /// </summary>
+        /// <returns>True if the title, author, and text field are not empty; otherwise false</returns>
+        private bool ValidateFields()
+        {
+            bool isValid = false;
+
+            if (txtTitle.Text != "" && txtAuthor.Text != "" && txtTheme.Text != "")
+            {
+                isValid = true;
+            }
+
+            return isValid;
         }
     }
 }

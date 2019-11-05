@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DmScreenV2.forms.startup"
         mc:Ignorable="d"
-        Title="DM Screen" Height="450" Width="572.337" WindowStartupLocation="CenterScreen">
+        Title="DM Screen" Height="508.58" Width="572.337" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListBox x:Name="listboxListOfCampaigns" HorizontalAlignment="Left" Height="384" Margin="10,10,0,0" VerticalAlignment="Top" Width="384" BorderThickness="0" Background="Gray">
+        <ListBox x:Name="listboxListOfCampaigns" HorizontalAlignment="Left" Height="445" Margin="14,10,0,0" VerticalAlignment="Top" Width="372" BorderThickness="0" Background="Gray" HorizontalContentAlignment="Center">
         </ListBox>
         <Button x:Name="btnCreateNew" Content="Create New" HorizontalAlignment="Left" Margin="410,11,0,0" VerticalAlignment="Top" Width="118" Height="42" Click="BtnCreateNew_Click"/>
         <Button x:Name="btnLaunchSelected" Content="Start" HorizontalAlignment="Left" Margin="410,71,0,0" VerticalAlignment="Top" Width="118" Height="42" IsEnabled="False" Click="BtnLaunchSelected_Click"/>
         <Button x:Name="btnEditSelected" Content="Edit" HorizontalAlignment="Left" Margin="410,129,0,0" VerticalAlignment="Top" Width="118" Height="42" IsEnabled="False" Click="BtnEditSelected_Click"/>
         <Button x:Name="btnDeleteSelected" Content="Delete" HorizontalAlignment="Left" Margin="410,190,0,0" VerticalAlignment="Top" Width="118" Height="42" IsEnabled="False" Click="BtnDeleteSelected_Click"/>
-        <Button x:Name="btnBack" Content="Back to Main" HorizontalAlignment="Left" Margin="410,352,0,0" VerticalAlignment="Top" Width="118" Height="42" Click="BtnBack_Click"/>
+        <Button x:Name="btnBack" Content="Back to Main" HorizontalAlignment="Left" Margin="410,365,0,0" VerticalAlignment="Top" Width="118" Height="42" Click="BtnBack_Click"/>
     </Grid>
 </Window>

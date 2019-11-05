@@ -32,6 +32,7 @@ namespace DmScreenV2.forms
             InitializeComponent();
             InitDmScreen();
             InitEvents();
+            CampaignDataService.SaveCampaignData(); //saves the last accessed date in case app closes without saving.
         }
 
 
@@ -41,7 +42,6 @@ namespace DmScreenV2.forms
         public void InitDmScreen()
         {
             frmMainInterface.Title = CampaignDataService.SelectedCampaign.Title;
-            InitEvents();
         }
 
 
@@ -205,11 +205,11 @@ namespace DmScreenV2.forms
         /// <param name="e"></param>
         private void FrmMainInterface_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
             if (!ExitMessage(clickedExit))
             {
                 e.Cancel = true;
             }
+            CampaignDataService.SaveCampaignData();
         }
 
         private bool ExitMessage(bool clickedExit)
@@ -220,8 +220,7 @@ namespace DmScreenV2.forms
             }
             else
             {
-                return (MessageBox.Show("Are you sure you would like to exit? If you need to save your data, please click NO.",
-                "Clost DM Screen?",
+                return (MessageBox.Show("Are you sure you would like to exit?", "Close DM Screen?",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question) == MessageBoxResult.Yes);
             }
