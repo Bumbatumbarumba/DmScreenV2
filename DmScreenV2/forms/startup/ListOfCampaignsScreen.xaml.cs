@@ -151,7 +151,7 @@ namespace DmScreenV2.forms.startup
             Label newEntryLastAccessedDate = new Label
             {
                 Visibility = Visibility.Visible,
-                Content = "Created On: " + newEntry.CreationDate.ToString("dd-MM-yyyy"),
+                Content = "Created On: " + newEntry.CreationDate.ToString("MMMM dd, yyyy"),
                 FontSize = 16,
                 Margin = new Thickness(149, 118, 0, 0),
                 Width = 210,
@@ -161,7 +161,7 @@ namespace DmScreenV2.forms.startup
             Label newEntryCreationDate = new Label
             {
                 Visibility = Visibility.Visible,
-                Content = "Last Accessed: " + newEntry.LastAccessed.ToString("dd-MM-yyyy"),
+                Content = "Last Accessed: " + newEntry.LastAccessed.ToString("MMMM dd, yyyy"),
                 FontSize = 16,
                 Margin = new Thickness(149, 154, 0, 0),
                 Width = 210,

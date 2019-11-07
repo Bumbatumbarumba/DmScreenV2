@@ -46,6 +46,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -73,6 +75,12 @@
     <Compile Include="controls\MouseOverDropDownControl.xaml.cs">
       <DependentUpon>MouseOverDropDownControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forms\characters\CreateCharacter.xaml.cs">
+      <DependentUpon>CreateCharacter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="forms\characters\CreatePlayer.xaml.cs">
+      <DependentUpon>CreatePlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="forms\tools\BattleMap.xaml.cs">
       <DependentUpon>BattleMap.xaml</DependentUpon>
     </Compile>
@@ -98,6 +106,14 @@
     <Compile Include="services\DirectoryManagerService.cs" />
     <Compile Include="services\MusicDataService.cs" />
     <Page Include="controls\MouseOverDropDownControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms\characters\CreateCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forms\characters\CreatePlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +182,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="forms\fillland\" />
+    <Folder Include="forms\maptools\" />
     <Folder Include="forms\tools\gallery\" />
     <Folder Include="resources\dice\" />
   </ItemGroup>

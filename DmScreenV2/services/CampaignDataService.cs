@@ -91,9 +91,8 @@ namespace DmScreenV2.services
                 newCamp.Author = desiredCampaign.Author;
                 newCamp.Theme = desiredCampaign.Theme;
                 newCamp.CreationDate = DateTime.Now;
-                //newCamp.LastAccessed = DateTime.Parse("01/01/1001");
                 newCamp.MusicFileLocations = new List<MusicObject>();
-                newCamp.CharacterList = new CharacterObject[] { };
+                newCamp.CharacterList = new List<CharacterObject>();
 
                 //if there is a directory, we set it to be that; if it's empty, we set it to be default
                 if (!(desiredCampaign.CampaignImageFileLocation == ""))
@@ -114,6 +113,26 @@ namespace DmScreenV2.services
             }
         }
 
+
+        /// <summary>
+        /// Searches the selected campaign's list of characters for the character with the matching character name.
+        /// </summary>
+        /// <param name="charName"></param>
+        /// <returns>Null if not found, otherwise CharacterObject.</returns>
+        public static CharacterObject FindCharacterInCampaign(string target)
+        {
+            CharacterObject result = null;
+
+            foreach (var character in SelectedCampaign.CharacterList)
+            {
+                if (character.CharacterName == target)
+                {
+                    result = character;
+                }
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Loads all the campaign json file into a CampaignObject for use where needed.

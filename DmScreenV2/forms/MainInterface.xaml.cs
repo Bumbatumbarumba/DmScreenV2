@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using DmScreenV2.forms;
 using DmScreenV2.forms.startup;
 using DmScreenV2.forms.tools;
+using DmScreenV2.forms.characters;
 using System.Timers;
 
 namespace DmScreenV2.forms
@@ -32,7 +33,7 @@ namespace DmScreenV2.forms
             InitializeComponent();
             InitDmScreen();
             InitEvents();
-            CampaignDataService.SaveCampaignData(); //saves the last accessed date in case app closes without saving.
+            //CampaignDataService.SaveCampaignData(); //saves the last accessed date in case app closes without saving.
         }
 
 
@@ -148,6 +149,11 @@ namespace DmScreenV2.forms
 
         private void CreatePlayers_Click(object sender, RoutedEventArgs e)
         {
+            CreatePlayer cp = new CreatePlayer()
+            {
+                Visibility = Visibility.Visible,
+                IsEnabled = true
+            };
 
         }
 
