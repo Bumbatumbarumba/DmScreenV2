@@ -9,6 +9,7 @@
     <Grid>
         <Menu HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="794">
             <MenuItem Header="_General" FontSize="18" Width="75" Height="50">
+                <MenuItem Header="List of Skills" Click="ListOfSkills_Click"/>
                 <MenuItem Header="Battle Map" Click="BattleMap_Click"/>
                 <MenuItem Header="Music Player" Click="MusicPlayer_Click"/>
                 <MenuItem Header="Dice" Click="Dice_Click"/>

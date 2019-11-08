@@ -55,9 +55,13 @@ namespace DmScreenV2.forms
 
             timer.Elapsed += (object sender, ElapsedEventArgs eventArgs) => { timer.Stop(); };
         }
-        
+
 
         //=========================GENERAL=========================
+        private void ListOfSkills_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void BattleMap_Click(object sender, RoutedEventArgs e)
         {
@@ -248,5 +252,6 @@ namespace DmScreenV2.forms
             imgSaveStatus.Source = new BitmapImage(new Uri(DirectoryManagerService.WorkingDirectory + @"resources\images\dataNotSaved.png"));
             imgSaveStatus.InvalidateVisual();
         }
+
     }
 }
